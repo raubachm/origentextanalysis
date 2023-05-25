@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 2%;
+            margin-left: 2%;
+            margin-top: 2%;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid black;
+            margin-top: 20px; /* Added margin to the table */
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid black;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .button-container {
+            margin-top: 20px; /* Added margin to the button container */
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            padding: 10px 16px;
+            margin: 10px;
+            background-color: #f2f2f2;
+            color: black;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Similarity Score: {{ similarity_score }}</h1>
+    <table>
+        <tr>
+            <th>Original Sentence</th>
+            <th>New Sentence</th>
+            <th>Similarity</th>
+        </tr>
+        {% for item in result %}
+        <tr>
+            <td>{{ item.original }}</td>
+            <td>{{ item.new }}</td>
+            <td>{{ item.similarity }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="button-container">
+        <a href="/">Analyze a New Text</a>
+    </div>
+</body>
+</html>
